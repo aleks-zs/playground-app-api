@@ -17,8 +17,7 @@ jobs:
         run: |
           pip install pipenv
           pipenv install
-          pipenv shell
       - name: Test
-        run: python manage.py test
+        run: pipenv run python manage.py test
       - name: Lint
-        run: flake8
+        run: pipenv run flake8
