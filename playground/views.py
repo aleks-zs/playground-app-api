@@ -1,10 +1,17 @@
-from django.http import JsonResponse
+from rest_framework import generics
+
+from core.models import Product
+from playground.serializers import ProductSerializer
 
 
-def api_simple(request, *args, **kwargs):
-    body = request.body
-    headers = request.headers
-    print(request.GET)
-    print(headers['content_type'])
-    print(body)
-    return JsonResponse({'message': 'API request recived'})
+class ProductList(generics.ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+class ProductDetails(generics.RetrieveAPIView,
+                     generics.CreateAPIView,
+                     generics.UpdateAPIView,
+                     generics.DestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
