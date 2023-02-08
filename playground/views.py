@@ -4,14 +4,11 @@ from core.models import Product
 from playground.serializers import ProductSerializer
 
 
-class ProductList(generics.ListAPIView):
+class ProductList(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
 
-class ProductDetails(generics.RetrieveAPIView,
-                     generics.CreateAPIView,
-                     generics.UpdateAPIView,
-                     generics.DestroyAPIView):
+class ProductDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
