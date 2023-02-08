@@ -76,7 +76,6 @@ class ProductApiTests(TestCase):
         }
 
         res = self.client.put(detail_url(1), payload, format='json')
-
         product = Product.objects.get(pk=1)
         serializer = ProductSerializer(product)
 
@@ -88,8 +87,8 @@ class ProductApiTests(TestCase):
         payload = {
             'content': 'PartialContent'
         }
-        res = self.client.patch(detail_url(2), payload, format='json')
 
+        res = self.client.patch(detail_url(2), payload, format='json')
         product = Product.objects.get(pk=2)
         serializer = ProductSerializer(product)
 
