@@ -1,5 +1,5 @@
 # playground-app-api
-## Django Playground API Project
+## DRF Playground API Project
 REST API playground
 
 
